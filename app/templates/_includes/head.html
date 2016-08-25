@@ -1,0 +1,25 @@
+<!-- Basic Page Needs
+================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Mobile Specific Metas
+================================================== -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Title and meta description
+================================================== -->
+
+<title>{{ site.name }}</title>
+<meta property="og:title" content="{{ site.name | xml_escape }} | {{ site.title | xml_escape }}" />
+
+<meta name="description" content="{{ site.description | xml_escape }}">
+<meta property="og:description" content="{{ site.description | xml_escape }}" />
+
+<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+
+<!-- CSS
+================================================== -->
+  <link rel="stylesheet" href="{{ "/assets/stylesheets/main.css" | prepend: site.baseurl }}">

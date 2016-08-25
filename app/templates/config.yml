@@ -1,0 +1,17 @@
+title: <%= name %>
+description: <%= description %>
+url: 
+
+markdown: redcarpet
+highlighter: rouge
+
+exclude:
+- Gemfile
+- Gemfile.lock
+- README.md
+- LICENSE.md
+- CONTRIBUTING.md
+- ".sass-cache"
+- ".ruby-version"
+- vendor
+- node_modules
