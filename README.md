@@ -1,4 +1,4 @@
-**DISCLAIMER: This repository is a currently experimental and not ready for project use.**
+**DISCLAIMER: This repository is an experimental and not ready for project use.**
 
 # generator-18F-static
 
