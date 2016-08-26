@@ -1,6 +1,7 @@
 'use strict';
-var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
+var slugify = require('./lib/slugify');
+var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
 module.exports = yeoman.Base.extend({
@@ -16,15 +17,26 @@ module.exports = yeoman.Base.extend({
       'Welcome to the ' + chalk.red('18F static site') + ' generator!'
     ));
 
-    var prompts = [{
-      type: 'input',
-      name: 'appName',
-      message: 'What is the name of your application?',
-    }, {
-      type: 'input',
-      name: 'appDescription',
-      message: 'Write a brief description of your project.',
-    }];
+    var prompts = [
+      {
+        type: 'input',
+        name: 'appName',
+        message: 'What is the name of your application?',
+      },
+      {
+        type: 'input',
+        name: 'appDescription',
+        message: 'Write a brief description of your project.',
+      },
+      {
+        type: 'input',
+        name: 'appSlug',
+        message: 'What is (or will be) your project name on github?',
+        default: function(props) {
+          return slugify(props.appName);
+        }
+      }
+    ];
 
     return this.prompt(prompts).then(function (props) {
       this.props = props;
@@ -44,7 +56,7 @@ module.exports = yeoman.Base.extend({
         this.templatePath('README.md'),
         this.destinationPath('README.md'),
         {
-          name: this.props.appName,
+          name: slugify(this.props.appName),
           description: this.props.appDescription
         }
       );
@@ -72,7 +84,8 @@ module.exports = yeoman.Base.extend({
         this.destinationPath('package.json'),
         {
           name: this.props.appName,
-          description: this.props.appDescription
+          description: this.props.appDescription,
+          slug: this.props.appSlug,
         }
       );
     }
@@ -121,9 +134,7 @@ module.exports = yeoman.Base.extend({
   },
 
   install: function () {
-    this.installDependencies({
-      bower: false
-    });
+    this.npmInstall();
   },
 
 });
