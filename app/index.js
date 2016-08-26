@@ -6,10 +6,16 @@ var yosay = require('yosay');
 
 module.exports = yeoman.Base.extend({
 
-  // TODO: Add skip install commands and instructions.
-  
   initializing: function () {
     this.pkg = require('../package.json');
+
+    // TODO: Add arguments, commands, and usage instructions
+
+    this.option('skip-install', {
+      type: Boolean,
+      desc: 'Do not automatically install npm dependencies',
+      default: false
+    });
   },
 
   prompting: function () {
@@ -20,31 +26,33 @@ module.exports = yeoman.Base.extend({
     var prompts = [
       {
         type: 'input',
-        name: 'appName',
-        message: 'What is the name of your application?',
+        name: 'name',
+        message: 'What is the name of your site or project?',
       },
       {
         type: 'input',
-        name: 'appDescription',
-        message: 'Write a brief description of your project.',
+        name: 'description',
+        message: 'Write a brief description of your project.'
       },
       {
         type: 'input',
-        name: 'appSlug',
-        message: 'What is (or will be) your project name on github?',
-        default: function(props) {
-          return slugify(props.appName);
+        name: 'slug',
+        message: 'What is (or will be) the short name ("slug") or your project on github?',
+        default: function(opts) {
+          return slugify(opts.name);
         }
       }
     ];
 
-    return this.prompt(prompts).then(function (props) {
-      this.props = props;
-    }.bind(this));
+    var options = this.options;
+    return this.prompt(prompts)
+      .then(function (opts) {
+        Object.assign(options, opts);
+      });
   },
 
   writing: {
-    
+
     git: function () {
       this.fs.copyTpl(
         this.templatePath('gitignore'),
@@ -56,8 +64,8 @@ module.exports = yeoman.Base.extend({
         this.templatePath('README.md'),
         this.destinationPath('README.md'),
         {
-          name: slugify(this.props.appName),
-          description: this.props.appDescription
+          name: slugify(this.options.name),
+          description: this.options.description
         }
       );
     },
@@ -73,7 +81,7 @@ module.exports = yeoman.Base.extend({
         this.templatePath('CONTRIBUTING.md'),
         this.destinationPath('CONTRIBUTING.md'),
         {
-          name: this.props.appName
+          name: this.options.name
         }
       );
     },
@@ -83,9 +91,9 @@ module.exports = yeoman.Base.extend({
         this.templatePath('_package.json'),
         this.destinationPath('package.json'),
         {
-          name: this.props.appName,
-          description: this.props.appDescription,
-          slug: this.props.appSlug,
+          name: this.options.name,
+          description: this.options.description,
+          slug: this.options.slug,
         }
       );
     }
@@ -114,12 +122,11 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
-
       this.templatePath('config.yml'),
       this.destinationPath('_config.yml'),
       {
-        name: this.props.appName,
-        description: this.props.appDescription
+        name: this.options.name,
+        description: this.options.description
       }
     );
 
@@ -127,14 +134,16 @@ module.exports = yeoman.Base.extend({
       this.templatePath('index.html'),
       this.destinationPath('index.html'),
       {
-        name: this.props.appName,
-        description: this.props.appDescription
+        name: this.options.name,
+        description: this.options.description
       }
     );
   },
 
   install: function () {
-    this.npmInstall();
+    if (this.options['skip-install'] !== true) {
+      this.npmInstall();
+    }
   },
 
 });
