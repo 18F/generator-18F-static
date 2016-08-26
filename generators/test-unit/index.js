@@ -119,6 +119,8 @@ module.exports = require('yeoman-generator').Base.extend({
         framework + '/' + specPath
       );
 
+      // FIXME this doesn't work for some reason...
+      // maybe this.fs.exists() isn't synchronous?
       var templatePath = this.fs.exists(frameworkAssertionPath)
         ? frameworkAssertionPath
         : frameworkPath;
