@@ -116,7 +116,7 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('_includes')
     );
 
-     this.fs.copy(
+    this.fs.copy(
       this.templatePath('assets'),
       this.destinationPath('assets')
     );
