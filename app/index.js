@@ -1,6 +1,6 @@
 'use strict';
 var chalk = require('chalk');
-var slugify = require('./lib/slugify');
+var slugify = require('../lib/slugify');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
