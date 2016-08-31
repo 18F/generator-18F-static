@@ -20,6 +20,9 @@ analytics:
 markdown: redcarpet
 highlighter: rouge
 
+sass:
+    sass_dir: assets/stylesheets
+
 exclude:
   - Gemfile
   - Gemfile.lock
