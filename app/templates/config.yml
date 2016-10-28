@@ -23,6 +23,8 @@ highlighter: rouge
 sass:
     sass_dir: assets/stylesheets
 
+stylesheets: assets/stylesheets/main.css
+
 exclude:
   - Gemfile
   - Gemfile.lock
