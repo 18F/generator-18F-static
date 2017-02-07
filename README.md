@@ -14,11 +14,12 @@ This is an experimental [Yeoman] generator that gets you up and running with [Je
   npm install -g yo
   ```
 
-1. Download or clone this repository, `cd` into it, then link it with [npm link]:
+1. Download or clone this repository, `cd` into it, install dependencies, then [npm link] it:
 
   ```sh
   git clone git@github.com:18F/generator-18F-static.git
   cd generator-18F-static
+  npm install
   npm link
   ```
 
