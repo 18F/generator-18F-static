@@ -2,32 +2,46 @@
 
 # generator-18F-static
 
-An experimental Yeoman static site generator using Jekyll and the Draft U.S. Web Design Standards.
+This is an experimental [Yeoman] generator that gets you up and running with Jekyll and the [U.S. Web Design Standards](https://standards.usa.gov).
 
-## Running locally
+## Installing the generator
 
-First, install [Yeoman](http://yeoman.io) and generator-18F-static using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+1. First, ensure that you have [Node.js](https://nodejs.org/en/) installed.
 
-```bash
-npm install -g yo
-```
+1. Install the [Yeoman] command line tool with [npm](https://www.npmjs.com/) in the terminal:
 
-To reference this generator locally, you will need to link it. Run the following command from the root level of this directory:
+  ```sh
+  npm install -g yo
+  ```
 
-```bash
-npm link
-```
+1. Download or clone this repository, `cd` into it, then link it with [npm link]:
 
-To test locally, make a new directory for your project:
+  ```sh
+  git clone git@github.com:18F/generator-18F-static.git
+  cd generator-18F-static
+  npm link
+  ```
 
-```bash
+## Running the generator
+
+First, create a directory for your project, and `cd` into it in the terminal:
+
+```sh
 mkdir my-project
+cd my-project
 ```
 
-Now we will test our generator by running our Yeoman command:
+Now you can run the generator with:
 
 ```bash
 yo 18F-static
 ```
 
-And voila! You should now have your project file and folder scaffolding for your project.
+This will prompt you for short answers to a series of questions about how you'd like your project set up. Once you've answered all of the questions (and unless an error occurs), you should end up with a project "scaffolding" that you can test locally with:
+
+```sh
+npm start
+```
+
+[Yeoman]: http://yeoman.io/
+[npm link]: https://docs.npmjs.com/cli/link
