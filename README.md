@@ -2,7 +2,7 @@
 
 # generator-18F-static
 
-This is an experimental [Yeoman] generator that gets you up and running with Jekyll and the [U.S. Web Design Standards](https://standards.usa.gov).
+This is an experimental [Yeoman] generator that gets you up and running with [Jekyll] and the [U.S. Web Design Standards](https://standards.usa.gov).
 
 ## Installing the generator
 
@@ -37,11 +37,14 @@ Now you can run the generator with:
 yo 18F-static
 ```
 
-This will prompt you for short answers to a series of questions about how you'd like your project set up. Once you've answered all of the questions (and unless an error occurs), you should end up with a project "scaffolding" that you can test locally with:
+This will prompt you for short answers to a series of questions about how you'd like your project set up. Once you've answered all of the questions (and unless an error occurs), you should end up with a project "scaffolding" that you can run locally with:
 
 ```sh
 npm start
 ```
 
+This will start a [Jekyll] server at [http://localhost:4000](http://localhost:4000).
+
 [Yeoman]: http://yeoman.io/
 [npm link]: https://docs.npmjs.com/cli/link
+[Jekyll]: https://jekyllrb.com/
