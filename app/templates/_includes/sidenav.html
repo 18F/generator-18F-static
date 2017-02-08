@@ -1,0 +1,20 @@
+    {% assign sidenav = page.sidenav | default: site.data.sidenav %}
+    <ul class="usa-sidenav-list">
+      {% for link in sidenav %}
+        {% assign link_href = link.href | relative_url %}
+        {% assign link_current = false %}
+        {% if link_href == page.url %}{% assign link_current = true %}{% endif %}
+      <li>
+        <a href="{{ link_href }}"{% if link_current %} class="usa-current"{% endif %}>{{ link.text }}</a>
+        {% if link_current and link.children %}
+        <ul class="usa-sidenav-sub_list">
+          {% for child in link.children %}
+          <li>
+            <a href="{{ child.href | relative_url }}">{{ child.text }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
