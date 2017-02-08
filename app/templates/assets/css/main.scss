@@ -1,5 +1,8 @@
 ---
+asset_path: ../uswds/
 ---
 
-// TODO: Shawn Allen to go all Felt on this!
-@import '../node_modules/uswds/src/stylesheets/all';
+$image-path:  '{{ page.asset_path }}images/';
+$font-path:   '{{ page.asset_path }}fonts/';
+
+@import 'uswds/all';
