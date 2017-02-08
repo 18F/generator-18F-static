@@ -21,11 +21,12 @@ scripts:
   - /assets/js/main.js
 
 markdown: redcarpet
-highlighter: rouge
+redcarpet:
+  extensions:
+    - tables
 
 sass:
-  load_paths:
-    - assets/uswds/scss
+  style: compressed
 
 exclude:
   - Gemfile
