@@ -1,0 +1,36 @@
+title: My great site
+description: ''
+
+# add any site-wide meta tags here
+meta:
+  og:type: site
+
+# this should *not* include the trailing slash
+url: ''
+
+stylesheets:
+  - /assets/css/main.css
+  # if you don't need to modify the standards,
+  # use this instead of the above line:
+  # - /assets/uswds/css/uswds.min.css
+
+scripts:
+  - /assets/uswds/js/uswds.min.js
+  # if you have no custom JavaScript,
+  # you can safely comment out or delete this line:
+  - /assets/js/main.js
+
+markdown: redcarpet
+highlighter: rouge
+
+sass:
+  load_paths:
+    - assets/uswds/scss
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - CONTRIBUTING.md
+  - LICENSE.md
+  - README.md
+  - node_modules
