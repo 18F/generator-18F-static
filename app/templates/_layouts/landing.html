@@ -1,0 +1,51 @@
+---
+layout: base
+---
+<main id="main-content">
+  <section class="usa-hero">
+    <div class="usa-grid">
+      <div class="usa-hero-callout usa-section-dark">
+        <h2>
+          {% if page.hero.callout.alt %}
+          <span class="usa-hero-callout-alt">{{ page.hero.callout.alt }}</span>
+          {% endif %}
+          {{ page.hero.callout.text }}
+        </h2>
+        {% if page.hero.link %}
+        <a class="usa-hero-link" href="{{ page.hero.link.href | relative_url }}">{{ page.hero.link.text }}</a>
+        {% endif %}
+        {% if page.hero.button %}
+        <a class="usa-button usa-button-big usa-button-secondary" href="{{ page.hero.button.href | relative_url }}">{{ page.hero.button.text }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+  <section class="usa-grid usa-section">
+    <div class="usa-width-one-third">
+      <h2>{{ page.tagline }}</h2>
+    </div>
+    <div class="usa-width-two-thirds">
+      {{ page.intro | markdownify }}
+    </div>
+  </section>
+  {% if page.graphics %}
+  <section class="usa-section usa-section-dark usa-graphic_list">
+    {% for graphic in page.graphics %}
+      {% cycle '<div class="usa-grid usa-graphic_list-row">', '' %}
+      <div class="usa-width-one-half usa-media_block">
+        <img class="usa-media_block-img" src="{{ graphic.image.src | relative_url }}" alt="{{ graphic.image.alt }}">
+        <div class="usa-media_block-body">
+          <h3>{{ graphic.title }}</h3>
+          {{ graphic.text | markdownify }}
+        </div>
+      </div>
+      {% cycle '', '</div>' %}
+    {% endfor %}
+  </section>
+  {% endif %}
+  <section class="usa-section">
+    <div class="usa-grid">
+      {{ content }}
+    </div>
+  </section>
+</main>
