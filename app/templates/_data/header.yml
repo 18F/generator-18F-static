@@ -1,0 +1,18 @@
+primary:
+  sections:
+    - text: Home
+      href: /
+    - text: Documentation
+      href: /docs/
+    - title: Another section
+      links:
+        - text: Some link
+          href: /one/
+        - text: Other link
+          href: /two/
+    - title: Section three
+      links:
+        - text: Some link
+          href: /one/
+        - text: Other link
+          href: /two/
