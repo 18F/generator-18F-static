@@ -27,6 +27,7 @@ redcarpet:
 
 sass:
   style: compressed
+  load_paths: # list any additional Sass include paths here
 
 exclude:
   - Gemfile
