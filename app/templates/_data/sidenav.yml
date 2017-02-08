@@ -1,0 +1,11 @@
+- text: Documentation
+  href: /docs/
+- text: Page one
+  href: /one/
+- text: Page two
+  href: /two/
+  children:
+    - text: Subpage one
+      href: /two/one/
+    - text: Subpage two
+      href: /two/two/
