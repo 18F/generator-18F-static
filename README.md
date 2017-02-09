@@ -19,7 +19,6 @@ This is an experimental [Yeoman] generator that gets you up and running with [Je
   ```sh
   git clone git@github.com:18F/generator-18F-static.git
   cd generator-18F-static
-  npm install
   npm link
   ```
 
